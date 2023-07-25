@@ -23,17 +23,17 @@ public class FileEntity {
     private Long id;
 
     @Column(length = 150, nullable = false)
-    private String nameFile;
+    private String name;
 
     @Enumerated(EnumType.STRING)
-    private FileType typeFile;
+    private FileType type;
 
     @Column(nullable = false)
-    private Integer sizeFile;
+    private Integer size;
 
 
-    @ManyToOne(fetch = FetchType.LAZY) // Аннотация @ManyToOne с FetchType.LAZY для отложенной загрузки связанного пользователя.
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) // Уточняем свойства связи ManyToOne и задаем поле user_id для связи.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
     private UserEntity user;
 }
