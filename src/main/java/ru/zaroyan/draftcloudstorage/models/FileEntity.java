@@ -1,5 +1,6 @@
 package ru.zaroyan.draftcloudstorage.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-public class UserFile {
+@Table(name = "files")
+public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,13 +31,11 @@ public class UserFile {
     @Column(nullable = false)
     private Integer sizeFile;
 
-    @Lob // Аннотация @Lob для хранения больших объектов (например, контента файла).
-    @Basic(fetch = FetchType.LAZY) // Аннотация @Basic с FetchType.LAZY для отложенной загрузки контента файла.
-    private byte[] contentFile;
 
     @ManyToOne(fetch = FetchType.LAZY) // Аннотация @ManyToOne с FetchType.LAZY для отложенной загрузки связанного пользователя.
-    @JoinColumn(name = "person_id", nullable = false) // Уточняем свойства связи ManyToOne и задаем поле user_id для связи.
-    private Person user;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) // Уточняем свойства связи ManyToOne и задаем поле user_id для связи.
+    @JsonIgnore
+    private UserEntity user;
 }
 
 
