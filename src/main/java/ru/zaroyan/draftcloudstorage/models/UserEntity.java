@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +27,12 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(min = 2, max = 50, message = "Длина логина должна быть от 2 до 50 символов")
+    @NotEmpty(message = "Логин не должен быть пустым")
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Size(min = 6, max = 20, message = "Длина пароля должна быть от 6 до 20 символов")
     @Column(nullable = false)
     private String password;
 
