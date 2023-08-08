@@ -18,7 +18,7 @@ import ru.zaroyan.draftcloudstorage.services.UserEntityDetailsService;
  * @author Zaroyan
  */
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
     private final UserEntityDetailsService userEntityDetailsService;
 
