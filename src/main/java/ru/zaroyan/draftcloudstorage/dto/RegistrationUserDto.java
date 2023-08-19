@@ -1,5 +1,6 @@
 package ru.zaroyan.draftcloudstorage.dto;
 
+import lombok.Data;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 
 import javax.persistence.*;
@@ -11,9 +12,10 @@ import java.util.List;
 /**
  * @author Zaroyan
  */
+@Data
 public class RegistrationUserDto {
     private String username;
     private String password;
     private String confirmPassword;
-    private String email;
+
 }
