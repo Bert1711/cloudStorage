@@ -2,14 +2,18 @@ package ru.zaroyan.draftcloudstorage.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
+import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
 import ru.zaroyan.draftcloudstorage.services.RegistrationService;
@@ -17,6 +21,8 @@ import ru.zaroyan.draftcloudstorage.services.UserEntityDetailsService;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 import ru.zaroyan.draftcloudstorage.utils.UserValidator;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -25,6 +31,7 @@ import java.util.Map;
  */
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/auth")
 
 public class AuthController {
     private final UserEntityDetailsService userEntityDetailsService;
@@ -35,18 +42,19 @@ public class AuthController {
     private final ModelMapper modelMapper;
 
     @PostMapping("/registration")
-    public Map<String, String> performRegistration(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+    public ResponseEntity<Object> performRegistration(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
         UserEntity user = convertToUser(userDto);
         userValidator.validate(user, bindingResult);
         if(bindingResult.hasErrors())
-            return Map.of("message", "Ошибка!");
+            return new ResponseEntity<>("Что-то пошло не так",
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         registrationService.register(user);
         String token = jwtTokenUtils.generateToken(user.getUsername());
-        return Map.of("jwt-token", token);
+        return ResponseEntity.ok(new JWTResponse(token));
     }
 
     @PostMapping("/login")
-    public Map<String, String> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
+    public ResponseEntity<Object> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
         UsernamePasswordAuthenticationToken authInputToken =
                 new UsernamePasswordAuthenticationToken(authenticationDTO.getUsername(),
                         authenticationDTO.getPassword());
@@ -54,12 +62,31 @@ public class AuthController {
         try {
             authenticationManager.authenticate(authInputToken);
         } catch (BadCredentialsException e) {
-            return Map.of("message", "Incorrect credentials!");
+            return new ResponseEntity<>("Incorrect credentials!",
+                    HttpStatus.BAD_REQUEST);
         }
 
         String token = jwtTokenUtils.generateToken(authenticationDTO.getUsername());
-        return Map.of("jwt-token", token);
+        return ResponseEntity.ok(new JWTResponse(token));
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response,
+                                         @RequestHeader("auth-token") String authToken) {
+        String jwt = authToken.substring(7);
+
+        if (jwt == null) {
+            return new ResponseEntity<>("Что-то пошло не так",
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+
+        return ResponseEntity.ok("Success logout");
+    }
+
 
     public UserEntity convertToUser(UserDto userDto) {
         return this.modelMapper.map(userDto, UserEntity.class);
