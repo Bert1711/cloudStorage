@@ -6,12 +6,16 @@ import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Zaroyan
  */
 @Repository
 public interface FilesRepository extends JpaRepository<FileEntity, Long> {
+    Optional<FileEntity> findFileByName(String name);
+    Optional<FileEntity> findFileByNameAndOwner(String filename, UserEntity user);
+    List<FileEntity> findAllByOwnerOrderByCreatedDesc(UserEntity user);
     List<FileEntity> findAllByUserId(Long userId);
 
     List<FileEntity> findAllByUserIdAndNameLike(Long userId, String firstLetters); //поиск по совпадающим первым буквам имени файла
