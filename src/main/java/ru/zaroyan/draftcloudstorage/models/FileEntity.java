@@ -1,12 +1,15 @@
 package ru.zaroyan.draftcloudstorage.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 
 /**
  * @author Zaroyan
@@ -20,22 +23,39 @@ import javax.persistence.*;
 public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
-    @Column(length = 150, nullable = false)
-    private String name;
+    @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    @Column(name = "created", nullable = false, updatable = false)
+    LocalDateTime created;
 
-    @Enumerated(EnumType.STRING)
-    private FileType type;
+
+    @Column(name = "file_name")
+    @NotBlank
+    String name;
+
+
+    @Column(name = "file_type", nullable = false)
+    String fileType;
 
     @Column(nullable = false)
-    private Integer size;
+    long size;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    @JsonIgnore
-    private UserEntity user;
+    @Lob
+    @Column(nullable = false)
+    byte[] bytes;
+
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "username")
+    UserEntity owner;
+
+    @PrePersist
+    protected void create() {
+        this.created = LocalDateTime.now();
+    }
+
 }
 
 
