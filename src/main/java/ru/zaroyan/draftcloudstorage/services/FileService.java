@@ -72,19 +72,33 @@ public class FileService {
 
     @Transactional(rollbackFor = Exception.class)
     public void deleteFile(String filename, String authToken) {
+        UserEntity user = getUserByToken(authToken);
 
-        FileEntity cloudFile = getCloudFileByName(filename, authToken);
-        filesRepository.deleteById(cloudFile.getId());
+        Optional<FileEntity> fileOptional = filesRepository.findFileByNameAndOwner(filename, user);
+        fileOptional.ifPresent(filesRepository::delete);
         log.info("Файл {} успешно удален", filename);
+
     }
 
-    @Transactional(rollbackFor = Exception.class)
+
     public void renameFile(String authToken, String currentFileName,
                            String newFileName) {
-        FileEntity file = getCloudFileByName(currentFileName, authToken);
-        file.setName(newFileName);
-        filesRepository.saveAndFlush(file);
-        log.info("Имя файла было успешно изменено");
+        UserEntity user = getUserByToken(authToken);
+        Optional<FileEntity> cloudFileOptional = filesRepository.findFileByNameAndOwner(currentFileName, user);
+        cloudFileOptional.ifPresent(file -> {
+            file.setName(newFileName);
+            filesRepository.save(file);
+            log.info("Имя файла было успешно изменено");
+        });
+    }
+
+    private FileEntity getFileByName(String filename, String authToken) {
+        UserEntity user = getUserByToken(authToken);
+        FileEntity cloudFile = filesRepository.findFileByNameAndOwner(filename, user)
+                .orElseThrow(() -> new RuntimeException("File can't be found for user:  "
+                        + user.getUsername()
+                ));
+        return cloudFile;
     }
 
 
@@ -94,21 +108,16 @@ public class FileService {
         return usersRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь с именем " + username
                         + " не найден"));
+
+
+
     }
 
-
-    public List<FileEntity> getAllCloudFileForUser(String authToken){
+    public List<FileEntity> getAllFileForUser(String authToken){
         UserEntity user = getUserByToken(authToken);
-        return filesRepository.findAllByOwnerOrderByCreatedDesc(user);
+        List<FileEntity> files = filesRepository.findAllByOwnerOrderByCreatedDesc(user);
+        return files;
     }
 
-
-    private FileEntity getCloudFileByName(String filename, String authToken) {
-        UserEntity user = getUserByToken(authToken);
-        FileEntity cloudFile = filesRepository.findFileByNameAndOwner(filename, user)
-                .orElseThrow(() -> new RuntimeException("File can't be found for user:  "
-                        + user.getUsername()
-                ));
-        return cloudFile;
-    }
 }
+

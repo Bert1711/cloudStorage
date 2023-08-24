@@ -1,8 +1,17 @@
 package ru.zaroyan.draftcloudstorage.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import ru.zaroyan.draftcloudstorage.models.FileEntity;
+import ru.zaroyan.draftcloudstorage.services.FileService;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Zaroyan
@@ -12,16 +21,61 @@ import org.springframework.web.bind.annotation.RestController;
 public class FileController {
 
 
-    @GetMapping("/list")
-    public String getFilesList() {
-        return "List of Files";
+    FileService fileService;
+    ModelMapper modelMapper;
+
+
+    @PostMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Object> upload(@RequestHeader("auth-token") String authToken,
+                                         @RequestParam("filename") String filename, MultipartFile multipartFile) throws IOException {
+
+        FileEntity file = fileService.upload(authToken, filename, multipartFile);
+
+        return new ResponseEntity<>(file, HttpStatus.OK);
+
+
     }
+
+    @PutMapping("/file")
+    public ResponseEntity<String> editFileName(@RequestHeader("auth-token") String authToken,
+                                               @RequestParam("filename") String oldFileName,
+                                               @RequestBody String newFileName) {
+        fileService.renameFile(authToken, oldFileName, newFileName);
+        return new ResponseEntity<>("Success upload", HttpStatus.OK);
+    }
+
+
     @GetMapping("/file")
-    public String unsecuredData() {
-        return "File";
+    public ResponseEntity<?> download(@RequestParam("filename") String filename,
+                                      @RequestHeader("auth-token") String authToken) {
+
+        FileEntity file = fileService.download(filename, authToken);
+        if (file != null) {
+            return ResponseEntity.ok()
+                    .header("Content-Disposition", "attachment; filename=" + file.getName())
+                    .body(file);
+        } else {
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-    @GetMapping("/secured")
-    public String securedData() {
-        return "Secured data";
+
+    @GetMapping("/list")
+    public ResponseEntity<?> getAllFiles(@RequestHeader("auth-token") String authToken) {
+
+        List<FileEntity> files = fileService.getAllFileForUser(authToken);
+
+        return ResponseEntity.ok(files);
+
+    }
+
+    @DeleteMapping("/file")
+    public ResponseEntity<?> deleteFile(@RequestParam("filename") String filename,
+                                             @RequestHeader("auth-token") String authToken) {
+        fileService.deleteFile(filename, authToken);
+
+        return ResponseEntity.ok("Success deleted");
+
     }
 }
