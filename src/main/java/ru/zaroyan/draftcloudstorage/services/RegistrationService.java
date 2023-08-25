@@ -19,7 +19,7 @@ public class RegistrationService {
         this.usersRepository = usersRepository;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public void register(UserEntity user) {
         usersRepository.save(user);
     }

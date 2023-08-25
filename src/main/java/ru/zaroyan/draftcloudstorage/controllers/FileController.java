@@ -5,11 +5,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import ru.zaroyan.draftcloudstorage.exceptions.ValidationException;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.services.FileService;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,19 +23,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FileController {
 
-
     FileService fileService;
-    ModelMapper modelMapper;
-
 
     @PostMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Object> upload(@RequestHeader("auth-token") String authToken,
-                                         @RequestParam("filename") String filename, MultipartFile multipartFile) throws IOException {
+    public ResponseEntity<HttpStatus> upload(@RequestHeader("auth-token") String authToken,
+                                             @RequestParam("filename") String filename,
+                                             @Valid MultipartFile multipartFile,
+                                             BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            throw new ValidationException("Validation failed");
+        }
 
-        FileEntity file = fileService.upload(authToken, filename, multipartFile);
+        fileService.upload(authToken, filename, multipartFile);
 
-        return new ResponseEntity<>(file, HttpStatus.OK);
+        return ResponseEntity.ok(HttpStatus.OK);
 
 
     }

@@ -15,11 +15,11 @@ import java.util.Optional;
  * @author Zaroyan
  */
 @Service
-public class UserEntityDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     private final UsersRepository usersRepository;
 
     @Autowired
-    public UserEntityDetailsService(UsersRepository usersRepository)  {
+    public UserDetailsServiceImpl(UsersRepository usersRepository)  {
         this.usersRepository = usersRepository;
     }
 

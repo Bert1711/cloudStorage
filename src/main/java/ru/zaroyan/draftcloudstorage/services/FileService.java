@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import ru.zaroyan.draftcloudstorage.exceptions.FileNotFoundExceptionImpl;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
 import ru.zaroyan.draftcloudstorage.repositories.FilesRepository;
@@ -22,6 +23,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j
+@Transactional(readOnly = true)
 public class FileService {
     private final FilesRepository filesRepository;
     private final UsersRepository usersRepository;
@@ -37,7 +39,7 @@ public class FileService {
 
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public FileEntity upload(String authToken, String filename, MultipartFile resource) throws IOException {
         UserEntity user = getUserByToken(authToken);
         if(resource.isEmpty()) {
@@ -66,30 +68,38 @@ public class FileService {
     public FileEntity download(String filename, String authToken) {
         UserEntity user = getUserByToken(authToken);
         FileEntity file = filesRepository.findFileByNameAndOwner(filename, user)
-                .orElseThrow(() -> new RuntimeException("The file not found"));
+                .orElseThrow(() -> new FileNotFoundExceptionImpl("The file not found"));
         return file;
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public void deleteFile(String filename, String authToken) {
         UserEntity user = getUserByToken(authToken);
 
         Optional<FileEntity> fileOptional = filesRepository.findFileByNameAndOwner(filename, user);
-        fileOptional.ifPresent(filesRepository::delete);
-        log.info("Файл {} успешно удален", filename);
+        if (fileOptional.isPresent()) {
+            filesRepository.delete(fileOptional.get());
+            log.info("Файл {} успешно удален", filename);
+        } else {
+            throw new FileNotFoundExceptionImpl("File not found");
+        }
 
     }
 
 
+    @Transactional
     public void renameFile(String authToken, String currentFileName,
                            String newFileName) {
         UserEntity user = getUserByToken(authToken);
         Optional<FileEntity> cloudFileOptional = filesRepository.findFileByNameAndOwner(currentFileName, user);
-        cloudFileOptional.ifPresent(file -> {
+        if (cloudFileOptional.isPresent()) {
+            FileEntity file = cloudFileOptional.get();
             file.setName(newFileName);
             filesRepository.save(file);
             log.info("Имя файла было успешно изменено");
-        });
+        } else {
+            throw new FileNotFoundExceptionImpl("File not found");
+        }
     }
 
     private FileEntity getFileByName(String filename, String authToken) {

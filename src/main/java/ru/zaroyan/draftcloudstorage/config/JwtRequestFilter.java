@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import ru.zaroyan.draftcloudstorage.services.UserEntityDetailsService;
+import ru.zaroyan.draftcloudstorage.services.UserDetailsServiceImpl;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 
 import javax.servlet.FilterChain;
@@ -25,7 +25,7 @@ import java.io.IOException;
 @Slf4j
 public class JwtRequestFilter extends OncePerRequestFilter {
     private final JwtTokenUtils jwtTokenUtils;
-    private final UserEntityDetailsService userEntityDetailsService;
+    private final UserDetailsServiceImpl userEntityDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

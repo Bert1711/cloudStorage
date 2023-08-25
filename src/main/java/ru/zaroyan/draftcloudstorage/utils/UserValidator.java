@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
-import ru.zaroyan.draftcloudstorage.services.UsersService;
+import ru.zaroyan.draftcloudstorage.services.UserService;
 
 /**
  * @author Zaroyan
@@ -13,10 +13,10 @@ import ru.zaroyan.draftcloudstorage.services.UsersService;
 @Component
 public class UserValidator implements Validator {
 
-    private final UsersService usersService;
+    private final UserService usersService;
 
     @Autowired
-    public UserValidator(UsersService usersService) {
+    public UserValidator(UserService usersService) {
         this.usersService = usersService;
     }
 

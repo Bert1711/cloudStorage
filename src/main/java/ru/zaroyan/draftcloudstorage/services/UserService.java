@@ -11,11 +11,11 @@ import java.util.Optional;
  * @author Zaroyan
  */
 @Service
-public class UsersService {
+public class UserService {
     UsersRepository usersRepository;
 
     @Autowired
-    public UsersService(UsersRepository usersRepository) {
+    public UserService(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
 

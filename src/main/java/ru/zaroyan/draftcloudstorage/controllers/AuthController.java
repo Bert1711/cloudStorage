@@ -17,14 +17,13 @@ import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
 import ru.zaroyan.draftcloudstorage.services.RegistrationService;
-import ru.zaroyan.draftcloudstorage.services.UserEntityDetailsService;
+import ru.zaroyan.draftcloudstorage.services.UserDetailsServiceImpl;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 import ru.zaroyan.draftcloudstorage.utils.UserValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Map;
 
 /**
  * @author Zaroyan
@@ -34,7 +33,7 @@ import java.util.Map;
 @RequestMapping("/auth")
 
 public class AuthController {
-    private final UserEntityDetailsService userEntityDetailsService;
+    private final UserDetailsServiceImpl userEntityDetailsService;
     private final RegistrationService registrationService;
     private final JwtTokenUtils jwtTokenUtils;
     private final AuthenticationManager authenticationManager;
