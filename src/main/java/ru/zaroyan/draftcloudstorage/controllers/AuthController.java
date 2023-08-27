@@ -56,8 +56,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
-        authService.performLogin(authenticationDTO);
-        return ResponseEntity.ok(authService.performLogin(authenticationDTO));
+        JWTResponse jwtResponse = authService.performLogin(authenticationDTO);
+        return ResponseEntity.ok(jwtResponse);
     }
 
     @PostMapping("/logout")

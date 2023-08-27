@@ -30,12 +30,13 @@ public class AuthControllerTest {
     private AuthService authService;
     private MockMvc mockMvc;
     @Mock
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper;
     @InjectMocks
     private AuthController authController;
 
     @BeforeEach
     public void setup() {
+        objectMapper = new ObjectMapper();
         mockMvc = MockMvcBuilders.standaloneSetup(authController).build();
     }
 
@@ -46,7 +47,7 @@ public class AuthControllerTest {
 
         when(authService.performLogin(authRequest)).thenReturn(jwtResponse);
 
-        mockMvc.perform(post("/login")
+        mockMvc.perform(post("/auth/login")
                         .content(objectMapper.writeValueAsString(authRequest))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
