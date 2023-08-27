@@ -14,15 +14,14 @@ import java.util.Optional;
 @Repository
 public interface FilesRepository extends JpaRepository<FileEntity, Long> {
     Optional<FileEntity> findFileByName(String name);
-    Optional<FileEntity> findFileByNameAndOwner(String filename, UserEntity user);
-    List<FileEntity> findAllByOwnerOrderByCreatedDesc(UserEntity user);
+    Optional<FileEntity> findFileByNameAndUser(String filename, UserEntity user);
+    List<FileEntity> findAllByUserOrderByCreatedDesc(UserEntity user);
     List<FileEntity> findAllByUserId(Long userId);
 
     List<FileEntity> findAllByUserIdAndNameLike(Long userId, String firstLetters); //поиск по совпадающим первым буквам имени файла
 
     List<FileEntity> findAllByUserIdOrderByName(Long userId); // Сортировка по имени в возрастающем порядке
 
-    List<FileEntity> findAllByUserIdOrderByType(Long userId); // Сортировка по типу в возрастающем порядке
 
     List<FileEntity> findAllByUserIdOrderBySizeDesc(Long userId); // Сортировка по размеру в убывающем порядке
 
@@ -32,7 +31,6 @@ public interface FilesRepository extends JpaRepository<FileEntity, Long> {
 
     List<FileEntity> findAllByUserOrderByName(UserEntity user);
 
-    List<FileEntity> findAllByUserOrderByType(UserEntity user);
 
     List<FileEntity> findAllByUserOrderBySizeDesc(UserEntity user);
 }

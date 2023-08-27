@@ -1,10 +1,7 @@
 package ru.zaroyan.draftcloudstorage.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -16,40 +13,40 @@ import java.time.LocalDateTime;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Builder
 @Entity
 @Table(name = "files")
 public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @Column(name = "created", nullable = false, updatable = false)
-    LocalDateTime created;
+    private LocalDateTime created;
 
 
     @Column(name = "file_name")
     @NotBlank
-    String name;
+    private String name;
 
 
     @Column(name = "file_type", nullable = false)
-    String fileType;
+    private String fileType;
 
     @Column(nullable = false)
-    long size;
+    private long size;
 
 
     @Lob
     @Column(nullable = false)
-    byte[] bytes;
+    private byte[] bytes;
 
     @ManyToOne
-    @JoinColumn(name = "owner", referencedColumnName = "username")
-    UserEntity owner;
+    @JoinColumn(name = "user", referencedColumnName = "username")
+    private UserEntity user;
 
     @PrePersist
     protected void create() {

@@ -16,6 +16,7 @@ import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
+import ru.zaroyan.draftcloudstorage.services.AuthService;
 import ru.zaroyan.draftcloudstorage.services.RegistrationService;
 import ru.zaroyan.draftcloudstorage.services.UserDetailsServiceImpl;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
@@ -33,10 +34,11 @@ import javax.validation.Valid;
 @RequestMapping("/auth")
 
 public class AuthController {
+    private final AuthService authService;
     private final UserDetailsServiceImpl userEntityDetailsService;
     private final RegistrationService registrationService;
     private final JwtTokenUtils jwtTokenUtils;
-    private final AuthenticationManager authenticationManager;
+
     private final UserValidator userValidator;
     private final ModelMapper modelMapper;
 
@@ -54,19 +56,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
-        UsernamePasswordAuthenticationToken authInputToken =
-                new UsernamePasswordAuthenticationToken(authenticationDTO.getUsername(),
-                        authenticationDTO.getPassword());
-
-        try {
-            authenticationManager.authenticate(authInputToken);
-        } catch (BadCredentialsException e) {
-            return new ResponseEntity<>("Incorrect credentials!",
-                    HttpStatus.BAD_REQUEST);
-        }
-
-        String token = jwtTokenUtils.generateToken(authenticationDTO.getUsername());
-        return ResponseEntity.ok(new JWTResponse(token));
+        authService.performLogin(authenticationDTO);
+        return ResponseEntity.ok(authService.performLogin(authenticationDTO));
     }
 
     @PostMapping("/logout")
