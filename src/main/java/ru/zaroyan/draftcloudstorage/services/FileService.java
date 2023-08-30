@@ -40,7 +40,7 @@ public class FileService {
     }
 
     @Transactional
-    public FileEntity upload(String authToken, String filename, MultipartFile resource) throws IOException {
+    public void upload(String authToken, String filename, MultipartFile resource) throws IOException {
         UserEntity user = getUserByToken(authToken);
         if(resource.isEmpty()) {
             log.info("Файл не найден");
@@ -61,8 +61,6 @@ public class FileService {
         }
         filesRepository.save(file);
         log.info("Пользователь успешно загрузил файл {}", filename);
-        return file;
-
     }
 
     public FileEntity download(String filename, String authToken) {

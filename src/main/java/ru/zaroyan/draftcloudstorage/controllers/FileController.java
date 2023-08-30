@@ -1,5 +1,6 @@
 package ru.zaroyan.draftcloudstorage.controllers;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -21,9 +22,10 @@ import java.util.List;
  */
 @RestController
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class FileController {
 
-    FileService fileService;
+    private FileService fileService;
 
     @PostMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
