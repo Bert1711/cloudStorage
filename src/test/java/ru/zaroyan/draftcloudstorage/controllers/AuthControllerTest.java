@@ -46,7 +46,7 @@ public class AuthControllerTest {
 
         when(authService.performLogin(authRequest)).thenReturn(jwtResponse);
 
-        mockMvc.perform(post("/auth/login")
+        mockMvc.perform(post("/login")
                         .content(objectMapper.writeValueAsString(authRequest))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

@@ -3,6 +3,7 @@ package ru.zaroyan.draftcloudstorage.controllers;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,8 +29,6 @@ import javax.validation.Valid;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
-
 public class AuthController {
     private final AuthService authService;
     private final UserDetailsServiceImpl userEntityDetailsService;
@@ -51,7 +50,7 @@ public class AuthController {
         return ResponseEntity.ok(new JWTResponse(token));
     }
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
         JWTResponse jwtResponse = authService.performLogin(authenticationDTO);
         return ResponseEntity.ok(jwtResponse);
