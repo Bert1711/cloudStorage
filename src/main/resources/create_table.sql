@@ -16,4 +16,4 @@
 -- );
 
 insert into users(username, password)
-VALUES ( 'user1@mail.ru', 'password')
+VALUES ( 'user2@mail.ru', 'password')

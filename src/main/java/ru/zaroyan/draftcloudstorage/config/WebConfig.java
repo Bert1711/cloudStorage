@@ -18,6 +18,8 @@ class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowCredentials(true)
                 .allowedOrigins("http://localhost:8081")
+                .allowedMethods("POST")
+                .allowedMethods("/logout")
                 .allowedMethods("*");
     }
 }

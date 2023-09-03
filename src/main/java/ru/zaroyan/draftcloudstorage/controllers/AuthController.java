@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
@@ -31,28 +30,27 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
-    private final UserDetailsServiceImpl userEntityDetailsService;
     private final RegistrationService registrationService;
     private final JwtTokenUtils jwtTokenUtils;
 
     private final UserValidator userValidator;
     private final ModelMapper modelMapper;
 
-    @PostMapping("/registration")
-    public ResponseEntity<Object> performRegistration(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
-        UserEntity user = convertToUser(userDto);
-        userValidator.validate(user, bindingResult);
-        if(bindingResult.hasErrors())
-            return new ResponseEntity<>("Что-то пошло не так",
-                    HttpStatus.INTERNAL_SERVER_ERROR);
-        registrationService.register(user);
-        String token = jwtTokenUtils.generateToken(user.getUsername());
-        return ResponseEntity.ok(new JWTResponse(token));
-    }
+//    @PostMapping("/registration")
+//    public ResponseEntity<Object> performRegistration(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+//        UserEntity user = convertToUser(userDto);
+//        userValidator.validate(user, bindingResult);
+//        if(bindingResult.hasErrors())
+//            return new ResponseEntity<>("Что-то пошло не так",
+//                    HttpStatus.INTERNAL_SERVER_ERROR);
+//        registrationService.register(user);
+//        String token = jwtTokenUtils.generateToken(user.getUsername());
+//        return ResponseEntity.ok(new JWTResponse(token));
+//    }
 
-    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {
-        JWTResponse jwtResponse = authService.performLogin(authenticationDTO);
+    @PostMapping("/login")
+    public ResponseEntity<?> performLogin(@RequestBody UserDto userDto) {
+        JWTResponse jwtResponse = authService.performLogin(userDto);
         return ResponseEntity.ok(jwtResponse);
     }
 

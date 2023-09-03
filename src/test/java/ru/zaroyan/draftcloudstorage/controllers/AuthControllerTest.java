@@ -10,8 +10,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
+import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.services.AuthService;
 
 import static org.mockito.Mockito.*;
@@ -41,16 +41,16 @@ public class AuthControllerTest {
 
     @Test
     public void testCreateAuthToken() throws Exception {
-        AuthenticationDTO authRequest = new AuthenticationDTO("username", "password");
+        UserDto userDto = new UserDto("username", "password");
         JWTResponse jwtResponse = new JWTResponse("token");
 
-        when(authService.performLogin(authRequest)).thenReturn(jwtResponse);
+        when(authService.performLogin(userDto)).thenReturn(jwtResponse);
 
         mockMvc.perform(post("/login")
-                        .content(objectMapper.writeValueAsString(authRequest))
+                        .content(objectMapper.writeValueAsString(userDto))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        verify(authService, times(1)).performLogin(authRequest);
+        verify(authService, times(1)).performLogin(userDto);
     }
 }

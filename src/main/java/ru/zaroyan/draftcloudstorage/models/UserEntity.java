@@ -27,7 +27,6 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Email
     @Size(min = 2, max = 50, message = "Длина логина должна быть от 2 до 50 символов")
     @NotEmpty(message = "Логин не должен быть пустым")
     @Column(nullable = false, unique = true)

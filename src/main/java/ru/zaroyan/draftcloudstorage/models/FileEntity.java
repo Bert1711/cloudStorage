@@ -45,7 +45,7 @@ public class FileEntity {
     private byte[] bytes;
 
     @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "username")
+    @JoinColumn(name = "username", referencedColumnName = "username")
     private UserEntity user;
 
     @PrePersist

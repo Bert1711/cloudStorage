@@ -1,16 +1,13 @@
 package ru.zaroyan.draftcloudstorage.services;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
+import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.exceptions.AuthenticationException;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 
@@ -24,18 +21,12 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtils jwtTokenUtils;
 
-    public JWTResponse performLogin(AuthenticationDTO authenticationDTO) {
+    public JWTResponse performLogin(UserDto userDto) {
         UsernamePasswordAuthenticationToken authInputToken =
-                new UsernamePasswordAuthenticationToken(authenticationDTO.getUsername(),
-                        authenticationDTO.getPassword());
-
-        try {
-            authenticationManager.authenticate(authInputToken);
-        } catch (BadCredentialsException e) {
-            log.error("Wrong password");
-            throw new AuthenticationException("Bad credentials");
-        }
-        String token = jwtTokenUtils.generateToken(authenticationDTO.getUsername());
+                new UsernamePasswordAuthenticationToken(userDto.getUsername(),
+                        userDto.getPassword());
+        authenticationManager.authenticate(authInputToken);
+        String token = jwtTokenUtils.generateToken(userDto.getUsername());
         return new JWTResponse(token);
     }
 }
