@@ -31,11 +31,13 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/login", "/registration", "/error").permitAll()
+                .anyRequest().hasAnyRole("USER", "ADMIN")
                 .and()
                 .formLogin().loginPage("/login")
                 .loginProcessingUrl("/process_login")
-                .defaultSuccessUrl("/list", true)
+                .defaultSuccessUrl("/hello", true)
                 .failureUrl("/login?error")
                 .and()
                 .logout()
@@ -43,9 +45,9 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/login")
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
