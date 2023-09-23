@@ -13,11 +13,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RestController;
 import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
-import ru.zaroyan.draftcloudstorage.models.UserEntity;
-import ru.zaroyan.draftcloudstorage.services.RegistrationService;
 import ru.zaroyan.draftcloudstorage.services.UserDetailsServiceImpl;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 
@@ -33,7 +34,6 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class AuthController {
     private final UserDetailsServiceImpl userDetailsService;
-    private final RegistrationService registrationService;
 
     private final JwtTokenUtils jwtTokenUtils;
     private final AuthenticationManager authenticationManager;
@@ -42,12 +42,10 @@ public class AuthController {
     public AuthController(
             AuthenticationManager authenticationManager,
             JwtTokenUtils jwtTokenUtils,
-            UserDetailsServiceImpl userDetailsService,
-            RegistrationService registrationService) {
+            UserDetailsServiceImpl userDetailsService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenUtils = jwtTokenUtils;
         this.userDetailsService = userDetailsService;
-        this.registrationService = registrationService;
     }
 
     @PostMapping("/login")
@@ -85,24 +83,6 @@ public class AuthController {
         }
 
         return ResponseEntity.ok("Success logout");
-    }
-
-
-    @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody AuthenticationDTO userRequest) {
-        try {
-            UserEntity newUser = UserEntity.builder()
-                    .login(userRequest.getLogin())
-                    .password(userRequest.getPassword())
-                    .build();
-
-            registrationService.register(newUser);
-            return ResponseEntity.ok("Пользователь успешно зарегистрирован.");
-        } catch (Exception e) {
-            log.error("Ошибка при регистрации пользователя: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Произошла ошибка при регистрации пользователя.");
-        }
     }
 }
 
