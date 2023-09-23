@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users
+      author: Zaroyan
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: login
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(1200)
+                  constraints:
+                    nullable: false

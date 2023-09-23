@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: Zaroyan
+      changes:
+
+        - sql:
+            sql: >
+              INSERT INTO users (login, password)
+              VALUES ('user1', '$2a$10$PuQ.YRcwwgqDfbCH69BSr.7eQnLF1Qr2PjxPRGCpPoEM6H5FHfCRG');
+        - sql:
+            sql: >
+              INSERT INTO users (login, password)
+              VALUES ('user2', '$2a$10$tsoYfWBWNq.cIFmWJkMFcu6W6W4UpYeEAgzjKTl6/0tFe3Uz/ruKy');
