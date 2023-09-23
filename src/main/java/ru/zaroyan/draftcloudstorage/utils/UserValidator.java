@@ -29,7 +29,7 @@ public class UserValidator implements Validator {
     public void validate(Object target, Errors errors) {
         UserEntity user = (UserEntity) target;
         // Проверка уникальности имени пользователя (логина)
-        if (usersService.getUserByName(user.getUsername()).isPresent()) {
+        if (usersService.getUserByName(user.getLogin()).isPresent()) {
             errors.rejectValue("username", "Человек с таким именем пользователя уже существует");
         }
     }

@@ -6,6 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.time.ZonedDateTime;
@@ -16,15 +17,17 @@ import java.util.Date;
  */
 @Component
 public class JwtTokenUtils {
+
     @Value("${jwt.secret}")
     private String secret;
 
-    public String generateToken(String username) {
+    public String generateToken(UserDetails userDetails) {
+        String username = userDetails.getUsername();
         Date expirationDate = Date.from(ZonedDateTime.now().plusMinutes(60).toInstant());
 
         return JWT.create()
                 .withSubject("User details")
-                .withClaim("username", username)
+                .withClaim("login", username)
                 .withIssuedAt(new Date())
                 .withIssuer("zaroyan")
                 .withExpiresAt(expirationDate)
@@ -37,8 +40,9 @@ public class JwtTokenUtils {
                 .withIssuer("zaroyan")
                 .build();
         DecodedJWT jwt = verifier.verify(token);
-        return jwt.getClaim("username").asString();
+        return jwt.getClaim("login").asString();
     }
+}
 
 
 
@@ -73,4 +77,4 @@ public class JwtTokenUtils {
 //                .parseClaimsJws(token)
 //                .getBody();
 //    }
-}
+

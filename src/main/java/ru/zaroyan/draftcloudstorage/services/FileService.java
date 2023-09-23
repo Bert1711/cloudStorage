@@ -104,7 +104,7 @@ public class FileService {
         UserEntity user = getUserByToken(authToken);
         FileEntity cloudFile = filesRepository.findFileByNameAndUser(filename, user)
                 .orElseThrow(() -> new RuntimeException("File can't be found for user:  "
-                        + user.getUsername()
+                        + user.getLogin()
                 ));
         return cloudFile;
     }
@@ -113,7 +113,7 @@ public class FileService {
     private UserEntity getUserByToken(String authToken) {
         String username = jwtTokenUtils.validateTokenAndRetrieveClaim(authToken.replace
                 (tokenPrefix, ""));
-        return usersRepository.findByUsername(username)
+        return usersRepository.findByLogin(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь с именем " + username
                         + " не найден"));
 

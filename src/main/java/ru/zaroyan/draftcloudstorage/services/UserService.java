@@ -20,6 +20,6 @@ public class UserService {
     }
 
     public Optional<UserEntity> getUserByName(String username) {
-        return usersRepository.findByUsername(username);
+        return usersRepository.findByLogin(username);
     }
 }

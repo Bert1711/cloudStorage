@@ -49,7 +49,7 @@ public class FileServiceTest {
         MultipartFile file = new MockMultipartFile("file", "test.txt", "text/plain", "test".getBytes());
 
         when(jwtTokenUtils.validateTokenAndRetrieveClaim(authToken)).thenReturn("username");
-        when(usersRepository.findByUsername("username")).thenReturn(Optional.of(new UserEntity()));
+        when(usersRepository.findByLogin("username")).thenReturn(Optional.of(new UserEntity()));
         when(filesRepository.findFileByName("test.txt")).thenReturn(Optional.empty());
 
         assertDoesNotThrow(() -> fileService.upload(authToken, "test.txt", file));
@@ -64,7 +64,7 @@ public class FileServiceTest {
         FileEntity file = new FileEntity();
 
         when(jwtTokenUtils.validateTokenAndRetrieveClaim(authToken)).thenReturn("username");
-        when(usersRepository.findByUsername("username")).thenReturn(Optional.of(user));
+        when(usersRepository.findByLogin("username")).thenReturn(Optional.of(user));
         when(filesRepository.findFileByNameAndUser(filename, user)).thenReturn(Optional.of(file));
 
         assertEquals(file, fileService.download(filename, authToken));
@@ -78,7 +78,7 @@ public class FileServiceTest {
         FileEntity file = new FileEntity();
 
         when(jwtTokenUtils.validateTokenAndRetrieveClaim(authToken)).thenReturn("username");
-        when(usersRepository.findByUsername("username")).thenReturn(Optional.of(user));
+        when(usersRepository.findByLogin("username")).thenReturn(Optional.of(user));
         when(filesRepository.findFileByNameAndUser(filename, user)).thenReturn(Optional.of(file));
 
         assertDoesNotThrow(() -> fileService.deleteFile(filename, authToken));
@@ -94,7 +94,7 @@ public class FileServiceTest {
         FileEntity file = new FileEntity();
 
         when(jwtTokenUtils.validateTokenAndRetrieveClaim(authToken)).thenReturn("username");
-        when(usersRepository.findByUsername("username")).thenReturn(Optional.of(user));
+        when(usersRepository.findByLogin("username")).thenReturn(Optional.of(user));
         when(filesRepository.findFileByNameAndUser(currentFileName, user)).thenReturn(Optional.of(file));
 
         assertDoesNotThrow(() -> fileService.renameFile(authToken, currentFileName, newFileName));
@@ -108,7 +108,7 @@ public class FileServiceTest {
         List<FileEntity> files = new ArrayList<>();
 
         when(jwtTokenUtils.validateTokenAndRetrieveClaim(authToken)).thenReturn("username");
-        when(usersRepository.findByUsername("username")).thenReturn(Optional.of(user));
+        when(usersRepository.findByLogin("username")).thenReturn(Optional.of(user));
         when(filesRepository.findAllByUserOrderByCreatedDesc(user)).thenReturn(files);
 
         assertEquals(files, fileService.getAllFileForUser(authToken));

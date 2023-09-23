@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
  * @author Zaroyan
  */
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class JWTResponse {
     @JsonProperty("auth-token")

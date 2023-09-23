@@ -1,0 +1,256 @@
+2023-09-23 11:49:11.289  WARN 3678 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d16m26s142ms).
+2023-09-23 12:04:39.204  WARN 3678 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=25s285ms), soft-evicting connections from pool.
+2023-09-23 12:10:30.565  WARN 3678 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m18s178ms).
+2023-09-23 12:11:00.033  WARN 3678 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s467ms), soft-evicting connections from pool.
+2023-09-23 12:11:06.005  INFO 3678 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:11:06.022  INFO 3678 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 12:11:06.027  INFO 3678 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 12:18:54.231  INFO 5386 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 5386 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 12:18:54.236  INFO 5386 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 12:18:54.984  INFO 5386 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 12:18:55.046  INFO 5386 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2023-09-23 12:18:55.618  INFO 5386 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 12:18:55.629  INFO 5386 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 12:18:55.630  INFO 5386 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 12:18:55.731  INFO 5386 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 12:18:55.732  INFO 5386 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1448 ms
+2023-09-23 12:18:55.880  INFO 5386 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 12:18:55.934  INFO 5386 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 12:18:56.102  INFO 5386 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 12:18:56.202  INFO 5386 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 12:18:56.367  INFO 5386 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 12:18:56.383  INFO 5386 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 12:18:57.218  INFO 5386 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 12:18:57.229  INFO 5386 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:18:57.857  INFO 5386 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c215642, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1317ac2c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f5ecada, org.springframework.security.web.header.HeaderWriterFilter@12765ebd, org.springframework.security.web.authentication.logout.LogoutFilter@fe38c0e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@750457a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c4786af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@416c1b0, org.springframework.security.web.session.SessionManagementFilter@3703a400, org.springframework.security.web.access.ExceptionTranslationFilter@21d15932, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75c589f2]
+2023-09-23 12:18:57.939  WARN 5386 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 12:18:58.233  WARN 5386 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 12:18:58.366  INFO 5386 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 12:18:58.379  INFO 5386 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 4.586 seconds (JVM running for 5.376)
+2023-09-23 12:21:45.016  INFO 5386 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:21:45.018  INFO 5386 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 12:21:45.025  INFO 5386 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 12:23:09.893  INFO 5511 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 5511 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 12:23:09.896  INFO 5511 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 12:23:10.534  INFO 5511 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 12:23:10.583  INFO 5511 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 2 JPA repository interfaces.
+2023-09-23 12:23:11.010  INFO 5511 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 12:23:11.017  INFO 5511 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 12:23:11.017  INFO 5511 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 12:23:11.088  INFO 5511 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 12:23:11.089  INFO 5511 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1147 ms
+2023-09-23 12:23:11.195  INFO 5511 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 12:23:11.229  INFO 5511 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 12:23:11.346  INFO 5511 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 12:23:11.407  INFO 5511 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 12:23:11.533  INFO 5511 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 12:23:11.545  INFO 5511 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 12:23:12.126  INFO 5511 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 12:23:12.134  INFO 5511 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:23:12.640  INFO 5511 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78f4d15d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6958d5d0, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c3924fd, org.springframework.security.web.header.HeaderWriterFilter@8636cf4, org.springframework.security.web.authentication.logout.LogoutFilter@565c887e, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@3e63bd6b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b94c200, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1322b542, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@314c28dc, org.springframework.security.web.session.SessionManagementFilter@4f65af91, org.springframework.security.web.access.ExceptionTranslationFilter@34e9de8d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2e2cd42c]
+2023-09-23 12:23:12.705  WARN 5511 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 12:23:12.971  WARN 5511 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 12:23:13.086  INFO 5511 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 12:23:13.097  INFO 5511 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 3.545 seconds (JVM running for 4.126)
+2023-09-23 12:23:19.931  INFO 5511 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 12:23:19.932  INFO 5511 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 12:23:19.933  INFO 5511 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-23 12:23:19.943  INFO 5511 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:23:20.030  INFO 5511 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: john
+2023-09-23 12:23:20.139  INFO 5511 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем john найден
+2023-09-23 12:23:20.193  INFO 5511 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:24:01.387  INFO 5511 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:24:01.390  INFO 5511 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 12:24:01.392  INFO 5511 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 12:24:09.479  INFO 5547 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 5547 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 12:24:09.487  INFO 5547 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 12:24:10.100  INFO 5547 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 12:24:10.141  INFO 5547 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
+2023-09-23 12:24:10.645  INFO 5547 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 12:24:10.652  INFO 5547 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 12:24:10.652  INFO 5547 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 12:24:10.731  INFO 5547 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 12:24:10.731  INFO 5547 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1196 ms
+2023-09-23 12:24:10.846  INFO 5547 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 12:24:10.881  INFO 5547 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 12:24:10.992  INFO 5547 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 12:24:11.056  INFO 5547 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 12:24:11.177  INFO 5547 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 12:24:11.188  INFO 5547 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 12:24:11.758  INFO 5547 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 12:24:11.766  INFO 5547 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:24:12.261  INFO 5547 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c3b221f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@750c23a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@125124ea, org.springframework.security.web.header.HeaderWriterFilter@1842dc39, org.springframework.security.web.authentication.logout.LogoutFilter@61ca5134, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@3f40568e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31450fc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52b30dcd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@238280df, org.springframework.security.web.session.SessionManagementFilter@270097ce, org.springframework.security.web.access.ExceptionTranslationFilter@6065bcb7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@8dcacf1]
+2023-09-23 12:24:12.327  WARN 5547 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 12:24:12.574  WARN 5547 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 12:24:12.692  INFO 5547 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 12:24:12.703  INFO 5547 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 3.562 seconds (JVM running for 4.168)
+2023-09-23 12:24:21.362  INFO 5547 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 12:24:21.363  INFO 5547 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 12:24:21.364  INFO 5547 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-23 12:24:21.373  INFO 5547 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:24:21.560  INFO 5547 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: john
+2023-09-23 12:24:21.664  INFO 5547 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем john найден
+2023-09-23 12:24:21.666  WARN 5547 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2023-09-23 12:24:21.670  INFO 5547 --- [http-nio-8080-exec-1] r.z.d.controllers.AuthController         : Ошибка аутентификации: Bad credentials
+2023-09-23 12:24:21.681  INFO 5547 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:25:12.782  INFO 5547 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:25:12.789  WARN 5547 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Illegal unquoted character ((CTRL-CHAR, code 10)): has to be escaped using backslash to be included in string value; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Illegal unquoted character ((CTRL-CHAR, code 10)): has to be escaped using backslash to be included in string value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 3, column: 79] (through reference chain: ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO["password"])]
+2023-09-23 12:25:12.789  INFO 5547 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:26:04.971  INFO 5547 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:26:04.973  INFO 5547 --- [http-nio-8080-exec-5] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user
+2023-09-23 12:26:04.978  INFO 5547 --- [http-nio-8080-exec-5] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user найден
+2023-09-23 12:26:04.978  WARN 5547 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2023-09-23 12:26:04.978  INFO 5547 --- [http-nio-8080-exec-5] r.z.d.controllers.AuthController         : Ошибка аутентификации: Bad credentials
+2023-09-23 12:26:04.979  INFO 5547 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:26:11.156  WARN 5547 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s861ms), soft-evicting connections from pool.
+2023-09-23 12:47:36.519  INFO 5547 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:47:36.521  INFO 5547 --- [http-nio-8080-exec-8] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user
+2023-09-23 12:47:36.527  INFO 5547 --- [http-nio-8080-exec-8] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user найден
+2023-09-23 12:47:36.528  WARN 5547 --- [http-nio-8080-exec-8] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2023-09-23 12:47:36.528  INFO 5547 --- [http-nio-8080-exec-8] r.z.d.controllers.AuthController         : Ошибка аутентификации: Bad credentials
+2023-09-23 12:47:36.528  INFO 5547 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:49:19.757  INFO 5547 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 12:49:19.759  INFO 5547 --- [http-nio-8080-exec-10] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user
+2023-09-23 12:49:19.765  INFO 5547 --- [http-nio-8080-exec-10] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user найден
+2023-09-23 12:49:20.184  INFO 5547 --- [http-nio-8080-exec-10] r.z.d.controllers.AuthController         : Ошибка аутентификации: Bad credentials
+2023-09-23 12:49:20.185  INFO 5547 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 12:56:05.345  INFO 5547 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 12:56:05.350  INFO 5547 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 12:56:05.353  INFO 5547 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 13:08:06.070  INFO 6347 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 6347 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 13:08:06.073  INFO 6347 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 13:08:06.634  INFO 6347 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 13:08:06.685  INFO 6347 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2023-09-23 13:08:07.159  INFO 6347 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 13:08:07.166  INFO 6347 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 13:08:07.166  INFO 6347 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 13:08:07.243  INFO 6347 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 13:08:07.244  INFO 6347 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1138 ms
+2023-09-23 13:08:07.359  INFO 6347 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 13:08:07.394  INFO 6347 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 13:08:07.512  INFO 6347 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 13:08:07.585  INFO 6347 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 13:08:07.715  INFO 6347 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 13:08:07.727  INFO 6347 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 13:08:08.343  INFO 6347 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 13:08:08.351  INFO 6347 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:08:08.881  INFO 6347 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7ef7f414, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@182dcd2b, org.springframework.security.web.context.SecurityContextPersistenceFilter@29e3c28, org.springframework.security.web.header.HeaderWriterFilter@314c6f89, org.springframework.security.web.authentication.logout.LogoutFilter@8ee1404, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@7c871ce4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7146c6ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a5d23c9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c3d72fd, org.springframework.security.web.session.SessionManagementFilter@52b30dcd, org.springframework.security.web.access.ExceptionTranslationFilter@270097ce, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c92f094]
+2023-09-23 13:08:08.956  WARN 6347 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 13:08:09.223  WARN 6347 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 13:08:09.349  INFO 6347 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 13:08:09.360  INFO 6347 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 3.597 seconds (JVM running for 5.351)
+2023-09-23 13:08:21.905  INFO 6347 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 13:08:21.906  INFO 6347 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 13:08:21.908  INFO 6347 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-09-23 13:08:21.918  INFO 6347 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:08:21.927  INFO 6347 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:09:20.487  INFO 6347 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:09:20.490  INFO 6347 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 13:09:20.497  INFO 6347 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 13:19:25.422  INFO 6519 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 6519 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 13:19:25.426  INFO 6519 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 13:19:26.031  INFO 6519 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 13:19:26.076  INFO 6519 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
+2023-09-23 13:19:26.509  INFO 6519 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 13:19:26.518  INFO 6519 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 13:19:26.518  INFO 6519 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 13:19:26.592  INFO 6519 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 13:19:26.592  INFO 6519 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1127 ms
+2023-09-23 13:19:26.700  INFO 6519 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 13:19:26.730  INFO 6519 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 13:19:26.850  INFO 6519 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 13:19:26.910  INFO 6519 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 13:19:27.035  INFO 6519 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 13:19:27.044  INFO 6519 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 13:19:27.663  INFO 6519 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 13:19:27.671  INFO 6519 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:19:28.186  INFO 6519 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@319058ce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3909308c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7204d98f, org.springframework.security.web.header.HeaderWriterFilter@72240290, org.springframework.security.web.authentication.logout.LogoutFilter@75c589f2, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@3d3b4e09, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c9512c6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f65af91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71cc0e35, org.springframework.security.web.session.SessionManagementFilter@34e9de8d, org.springframework.security.web.access.ExceptionTranslationFilter@46bdc55e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a562255]
+2023-09-23 13:19:28.250  WARN 6519 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 13:19:28.512  WARN 6519 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 13:19:28.637  INFO 6519 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 13:19:28.648  INFO 6519 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 3.576 seconds (JVM running for 4.179)
+2023-09-23 13:19:51.534  INFO 6519 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 13:19:51.535  INFO 6519 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 13:19:51.536  INFO 6519 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-23 13:19:51.545  INFO 6519 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:19:51.728  INFO 6519 --- [http-nio-8080-exec-1] r.z.d.services.RegistrationService       : парампарам
+2023-09-23 13:19:51.829  INFO 6519 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:20:24.914  INFO 6519 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:20:25.017  INFO 6519 --- [http-nio-8080-exec-3] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user2
+2023-09-23 13:20:25.101  INFO 6519 --- [http-nio-8080-exec-3] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user2 найден
+2023-09-23 13:20:25.242  INFO 6519 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:25:11.835  INFO 6519 --- [http-nio-8080-exec-6] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:25:11.942  INFO 6519 --- [http-nio-8080-exec-6] r.z.d.services.RegistrationService       : парампарам
+2023-09-23 13:25:11.957  WARN 6519 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2023-09-23 13:25:11.957 ERROR 6519 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "users" does not exist
+  Позиция: 13
+2023-09-23 13:25:11.967 ERROR 6519 --- [http-nio-8080-exec-6] r.z.d.controllers.AuthController         : Ошибка при регистрации пользователя: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement
+2023-09-23 13:25:11.969  INFO 6519 --- [http-nio-8080-exec-6] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:25:36.922  INFO 6519 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:25:36.926  INFO 6519 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 13:25:36.933  INFO 6519 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 13:25:40.903  INFO 6637 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 6637 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 13:25:40.907  INFO 6637 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 13:25:41.523  INFO 6637 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 13:25:41.567  INFO 6637 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2023-09-23 13:25:42.035  INFO 6637 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 13:25:42.042  INFO 6637 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 13:25:42.043  INFO 6637 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 13:25:42.119  INFO 6637 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 13:25:42.119  INFO 6637 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1169 ms
+2023-09-23 13:25:42.235  INFO 6637 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 13:25:42.271  INFO 6637 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 13:25:42.392  INFO 6637 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 13:25:42.460  INFO 6637 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 13:25:42.589  INFO 6637 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 13:25:42.602  INFO 6637 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 13:25:43.265  INFO 6637 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 13:25:43.273  INFO 6637 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:25:43.845  INFO 6637 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1238a074, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35b58254, org.springframework.security.web.context.SecurityContextPersistenceFilter@59c38af5, org.springframework.security.web.header.HeaderWriterFilter@7d7a8d23, org.springframework.security.web.authentication.logout.LogoutFilter@5cba474f, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@2ed35f24, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@534d0cfa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f1ffc18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73baf7f0, org.springframework.security.web.session.SessionManagementFilter@59ec5a0b, org.springframework.security.web.access.ExceptionTranslationFilter@480994d3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5dc120ab]
+2023-09-23 13:25:43.912  WARN 6637 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 13:25:44.188  WARN 6637 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 13:25:44.315  INFO 6637 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 13:25:44.332  INFO 6637 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 3.79 seconds (JVM running for 4.552)
+2023-09-23 13:28:14.832  INFO 6637 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 13:28:14.833  INFO 6637 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 13:28:14.835  INFO 6637 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-09-23 13:28:14.845  INFO 6637 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:28:15.020  INFO 6637 --- [http-nio-8080-exec-2] r.z.d.services.RegistrationService       : парампарам
+2023-09-23 13:28:15.106  INFO 6637 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:28:20.886  INFO 6637 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:28:20.993  INFO 6637 --- [http-nio-8080-exec-3] r.z.d.services.RegistrationService       : парампарам
+2023-09-23 13:28:21.005  INFO 6637 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:29:55.784  INFO 6637 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:29:55.789  INFO 6637 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 13:29:55.796  INFO 6637 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-23 13:33:01.738  INFO 6779 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 6779 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-09-23 13:33:01.742  INFO 6779 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-09-23 13:33:02.493  INFO 6779 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 13:33:02.544  INFO 6779 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 2 JPA repository interfaces.
+2023-09-23 13:33:03.084  INFO 6779 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-23 13:33:03.092  INFO 6779 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-23 13:33:03.092  INFO 6779 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-09-23 13:33:03.179  INFO 6779 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-23 13:33:03.180  INFO 6779 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1393 ms
+2023-09-23 13:33:03.321  INFO 6779 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 13:33:03.374  INFO 6779 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-09-23 13:33:03.507  INFO 6779 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-09-23 13:33:03.605  INFO 6779 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-23 13:33:03.736  INFO 6779 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-23 13:33:03.751  INFO 6779 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-09-23 13:33:04.424  INFO 6779 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 13:33:04.437  INFO 6779 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:33:05.040  INFO 6779 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73baf7f0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@446dacf9, org.springframework.security.web.context.SecurityContextPersistenceFilter@1bbc1b90, org.springframework.security.web.header.HeaderWriterFilter@125124ea, org.springframework.security.web.authentication.logout.LogoutFilter@284b487f, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@2c4be45f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@480994d3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7146c6ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13018f00, org.springframework.security.web.session.SessionManagementFilter@31450fc0, org.springframework.security.web.access.ExceptionTranslationFilter@6a7fc4c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ef7f414]
+2023-09-23 13:33:05.117  WARN 6779 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 13:33:05.403  WARN 6779 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-09-23 13:33:05.536  INFO 6779 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 13:33:05.548  INFO 6779 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 4.158 seconds (JVM running for 4.807)
+2023-09-23 13:33:17.039  INFO 6779 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 13:33:17.040  INFO 6779 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-23 13:33:17.042  INFO 6779 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-09-23 13:33:17.058  INFO 6779 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вошли в фильтр JwtRequestFilter
+2023-09-23 13:33:17.262  INFO 6779 --- [http-nio-8080-exec-1] r.z.d.services.RegistrationService       : парампарам
+2023-09-23 13:33:17.374  INFO 6779 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : вышли из фильтра JwtRequestFilter
+2023-09-23 13:33:33.760  INFO 6779 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 13:33:33.762  INFO 6779 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-23 13:33:33.769  INFO 6779 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

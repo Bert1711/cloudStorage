@@ -1,24 +1,32 @@
 package ru.zaroyan.draftcloudstorage.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 /**
  * @author Zaroyan
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Slf4j
 public class AuthenticationDTO {
-    @NotEmpty(message = "Имя не должно быть пустым")
-    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
-    private String username;
+
+    private String login;
 
     private String password;
 
     public String getUsername() {
-        return username;
+        return login;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.login = username;
     }
 
     public String getPassword() {
