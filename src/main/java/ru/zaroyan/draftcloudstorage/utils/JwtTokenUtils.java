@@ -20,10 +20,12 @@ public class JwtTokenUtils {
 
     @Value("${jwt.secret}")
     private String secret;
+    @Value("${jwt.lifetime}")
+    private int jwtLifetime;
 
     public String generateToken(UserDetails userDetails) {
         String username = userDetails.getUsername();
-        Date expirationDate = Date.from(ZonedDateTime.now().plusMinutes(60).toInstant());
+        Date expirationDate = Date.from(ZonedDateTime.now().plusMinutes(jwtLifetime).toInstant());
 
         return JWT.create()
                 .withSubject("User details")
