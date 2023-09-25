@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,19 +18,18 @@ import ru.zaroyan.draftcloudstorage.services.FileService;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Zaroyan
  */
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Slf4j
 public class FileController {
 
+    @Autowired
     private FileService fileService;
 
     @PostMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE,
@@ -74,16 +74,20 @@ public class FileController {
     }
 
     @GetMapping("/list")
-    public List<FileDto> getFileList(Principal principal,
-                                     @RequestParam(name = "limit", defaultValue = "5") int limit) {
-        log.info("GET Request: get FileList " + limit);
-        return new ArrayList<>();
+    public ResponseEntity<?> getAllFiles(@RequestParam(name = "limit", defaultValue = "3") int limit,
+                                         @RequestHeader("auth-token") String authToken) {
+        log.info("limit"+limit);
+        log.info(authToken);
+
+        List<FileDto> files = fileService.getAllFiles(limit, authToken);
+
+        return ResponseEntity.ok(files);
+
     }
 
     @DeleteMapping("/file")
     public ResponseEntity<?> deleteFile(@RequestParam("filename") String filename,
                                              @RequestHeader("auth-token") String authToken) {
-
         fileService.deleteFile(filename, authToken);
 
         return ResponseEntity.ok("Success deleted");

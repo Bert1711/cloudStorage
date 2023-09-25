@@ -39,14 +39,13 @@ public class JwtTokenUtils {
     }
 
     public String validateTokenAndRetrieveClaim(String token) throws JWTVerificationException {
-        log.info(token);
+
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret))
                 .withSubject("User details")
                 .withIssuer("zaroyan")
                 .build();
         DecodedJWT jwt = verifier.verify(token);
-        String login = jwt.getClaim("login").asString();
-        log.info("OK " + login);
+        log.info("прошли валидацию токена");
         return jwt.getClaim("login").asString();
     }
 }

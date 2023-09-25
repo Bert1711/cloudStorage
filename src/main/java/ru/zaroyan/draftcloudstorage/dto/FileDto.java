@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * @author Zaroyan
  */
@@ -21,6 +23,7 @@ public class FileDto {
     private String fileName;
     private String fileType;
     private byte[] fileData;
+    private LocalDateTime created;
     private String hash;
     private Long size;
 

@@ -39,9 +39,11 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: user_id
-                  type: BIGINT
+                  name: user_login
+                  type: VARCHAR(255) # или другая подходящая длина
                   constraints:
                     foreignKeyName: file_user_fk
                     referencedTableName: users
-                    referencedColumnNames: id
+                    referencedColumnNames: login
+                    nullable: false
+

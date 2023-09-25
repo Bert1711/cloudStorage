@@ -35,6 +35,7 @@ public class FileService {
     @Autowired
     public FileService(FilesRepository filesRepository,  UsersRepository usersRepository,
                        JwtTokenUtils jwtTokenUtils) {
+        log.info("ИНИЦИАЛИЗАЦИЯ FileSer");
         this.filesRepository = filesRepository;
         this.usersRepository = usersRepository;
         this.jwtTokenUtils = jwtTokenUtils;
@@ -123,16 +124,21 @@ public class FileService {
 
     }
 
-    public List<FileDto> getAllFiles(int limit, String token) {
+    public List<FileDto> getAllFiles(int limit, String authToken) {
+        String token = authToken.substring(7);
+
+        log.info("вошли в метод getAllFiles");
         String login = jwtTokenUtils.validateTokenAndRetrieveClaim(token);
+        log.info("после валидации токена");
 
         log.info("Поиск всех файлов в базе данных по Id пользователя: {} и лимиту вывода: {}", login, limit);
-        List<FileEntity> listFiles = filesRepository.findFileEntitiesByUserLoginWithLimitByUserLoginWithLimit(login, limit);
+        List<FileEntity> listFiles = filesRepository.findFilesByUserIdWithLimit(login, limit);
 
         log.info("Все файлы в базе данных по Id пользователя: {} и лимиту вывода: {} найдены | Список файлов: {}", login, limit, listFiles);
         return listFiles.stream()
                 .map(file -> FileDto.builder()
                         .fileName(file.getName())
+                        .created(file.getCreated())
                         .size(file.getSize())
                         .build()).collect(Collectors.toList());
     }
