@@ -4,9 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
+import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.security.UserEntityDetails;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
@@ -28,7 +27,7 @@ public class AuthService {
         this.userDetailsService = userDetailsService;
     }
 
-    public JWTResponse performLogin(AuthenticationDTO userDto) {
+    public JWTResponse performLogin(UserDto userDto) {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

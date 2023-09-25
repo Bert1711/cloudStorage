@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import java.util.Date;
  * @author Zaroyan
  */
 @Component
+@Slf4j
 public class JwtTokenUtils {
 
     @Value("${jwt.secret}")
@@ -37,11 +39,14 @@ public class JwtTokenUtils {
     }
 
     public String validateTokenAndRetrieveClaim(String token) throws JWTVerificationException {
+        log.info(token);
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret))
                 .withSubject("User details")
                 .withIssuer("zaroyan")
                 .build();
         DecodedJWT jwt = verifier.verify(token);
+        String login = jwt.getClaim("login").asString();
+        log.info("OK " + login);
         return jwt.getClaim("login").asString();
     }
 }

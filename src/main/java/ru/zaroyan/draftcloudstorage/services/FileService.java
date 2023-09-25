@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import ru.zaroyan.draftcloudstorage.dto.FileDto;
 import ru.zaroyan.draftcloudstorage.exceptions.FileNotFoundExceptionImpl;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
@@ -16,6 +17,7 @@ import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author Zaroyan
@@ -121,11 +123,26 @@ public class FileService {
 
     }
 
-    public List<FileEntity> getAllFileForUser(String authToken){
-        UserEntity user = getUserByToken(authToken);
-        List<FileEntity> files = filesRepository.findAllByUserOrderByCreatedDesc(user);
-        return files;
+    public List<FileDto> getAllFiles(int limit, String token) {
+        String login = jwtTokenUtils.validateTokenAndRetrieveClaim(token);
+
+        log.info("Поиск всех файлов в базе данных по Id пользователя: {} и лимиту вывода: {}", login, limit);
+        List<FileEntity> listFiles = filesRepository.findFileEntitiesByUserLoginWithLimitByUserLoginWithLimit(login, limit);
+
+        log.info("Все файлы в базе данных по Id пользователя: {} и лимиту вывода: {} найдены | Список файлов: {}", login, limit, listFiles);
+        return listFiles.stream()
+                .map(file -> FileDto.builder()
+                        .fileName(file.getName())
+                        .size(file.getSize())
+                        .build()).collect(Collectors.toList());
     }
+
+//    public List<FileEntity> getAllFileForUser(int limit, String authToken){
+//        UserEntity user = getUserByToken(authToken);
+//        long userId = user.getId();
+//        List<FileEntity> files = filesRepository.findFilesByUserIdWithLimit(userId, limit);
+//        return files;
+//    }
 
 }
 

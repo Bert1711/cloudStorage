@@ -1,6 +1,7 @@
 package ru.zaroyan.draftcloudstorage.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
@@ -15,7 +16,8 @@ import java.util.Optional;
 public interface FilesRepository extends JpaRepository<FileEntity, Long> {
     Optional<FileEntity> findFileByName(String name);
     Optional<FileEntity> findFileByNameAndUser(String filename, UserEntity user);
-    List<FileEntity> findAllByUserOrderByCreatedDesc(UserEntity user);
+    @Query(value = "select * from file_entity f where f.user_id = ?1 order by f.id desc limit ?2", nativeQuery = true)
+    List<FileEntity> findFileEntitiesByUserLoginWithLimitByUserLoginWithLimit(String login, int limit);
     List<FileEntity> findAllByUserId(Long userId);
 
     List<FileEntity> findAllByUserIdAndNameLike(Long userId, String firstLetters); //поиск по совпадающим первым буквам имени файла

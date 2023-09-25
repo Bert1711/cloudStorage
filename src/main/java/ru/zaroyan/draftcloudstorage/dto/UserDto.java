@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 /**
  * @author Zaroyan
  */
@@ -15,7 +12,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Slf4j
-public class AuthenticationDTO {
+public class UserDto {
 
     private String login;
 

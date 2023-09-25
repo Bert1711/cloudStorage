@@ -1,6 +1,5 @@
 package ru.zaroyan.draftcloudstorage.controllers;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -8,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
+import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.models.UserEntity;
 import ru.zaroyan.draftcloudstorage.services.RegistrationService;
 
@@ -26,7 +25,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody AuthenticationDTO userRequest) {
+    public ResponseEntity<String> registerUser(@RequestBody UserDto userRequest) {
         try {
             UserEntity newUser = UserEntity.builder()
                     .login(userRequest.getLogin())

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-import ru.zaroyan.draftcloudstorage.dto.AuthenticationDTO;
+import ru.zaroyan.draftcloudstorage.dto.UserDto;
 import ru.zaroyan.draftcloudstorage.dto.JWTResponse;
 import ru.zaroyan.draftcloudstorage.services.UserDetailsServiceImpl;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
@@ -49,16 +49,15 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> performLogin(@RequestBody AuthenticationDTO userDto) {
+    public ResponseEntity<?> performLogin(@RequestBody UserDto userDto) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(userDto.getUsername(), userDto.getPassword())
             );
 
-            // В этом месте аутентификация прошла успешно
-
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String token = jwtTokenUtils.generateToken(userDetails);
+            log.info(token);
 
             return ResponseEntity.ok(new JWTResponse(token));
         } catch (AuthenticationException e) {

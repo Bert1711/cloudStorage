@@ -30,16 +30,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         log.info("вошли в фильтр JwtRequestFilter");
-        String authHeader = httpServletRequest.getHeader("Authorization");
+        String authHeader = httpServletRequest.getHeader("auth-token");
 
         if (authHeader != null && !authHeader.isBlank() && authHeader.startsWith("Bearer ")) {
             String jwt = authHeader.substring(7);
 
             if (jwt.isBlank()) {
+                log.info("Неверный токен JWT в заголовке носителя");
                 httpServletResponse.sendError(HttpServletResponse.SC_BAD_REQUEST,
                         "Invalid JWT Token in Bearer Header");
             } else {
                 try {
+                    log.info("Validate jwt");
                     String username = jwtTokenUtils.validateTokenAndRetrieveClaim(jwt);
                     UserDetails userDetails = userEntityDetailsService.loadUserByUsername(username);
 
@@ -50,8 +52,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
                     if (SecurityContextHolder.getContext().getAuthentication() == null) {
                         SecurityContextHolder.getContext().setAuthentication(authToken);
+                        log.info("setAuthentication authToken");
                     }
                 } catch (JWTVerificationException exc) {
+                    log.info("Invalid JWT Token");
                     httpServletResponse.sendError(HttpServletResponse.SC_BAD_REQUEST,
                             "Invalid JWT Token");
                 }
