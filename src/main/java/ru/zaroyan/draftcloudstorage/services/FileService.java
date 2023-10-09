@@ -74,8 +74,10 @@ public class FileService {
 
     public FileEntity download(String filename, String authToken) {
         UserEntity user = getUserByToken(authToken);
+        log.info("метод скачивания");
         FileEntity file = filesRepository.findFileByNameAndUser(filename, user)
                 .orElseThrow(() -> new FileNotFoundExceptionImpl("The file not found"));
+        log.info(file.toString());
         return file;
     }
 
