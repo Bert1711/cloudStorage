@@ -77,6 +77,7 @@ public class FileService {
         log.info("метод скачивания");
         FileEntity file = filesRepository.findFileByNameAndUser(filename, user)
                 .orElseThrow(() -> new FileNotFoundExceptionImpl("The file not found"));
+
         log.info(file.toString());
         return file;
     }

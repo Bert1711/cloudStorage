@@ -4262,3 +4262,180 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 2023-10-09 21:33:03.128  INFO 21099 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-09 21:33:03.132  INFO 21099 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-09 21:33:03.139  INFO 21099 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 21:35:10.561  INFO 21298 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 21298 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-10-09 21:35:10.566  INFO 21298 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 21:35:11.266  INFO 21298 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 21:35:11.318  INFO 21298 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2023-10-09 21:35:11.852  INFO 21298 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-09 21:35:11.863  INFO 21298 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-09 21:35:11.863  INFO 21298 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-10-09 21:35:11.955  INFO 21298 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-09 21:35:11.955  INFO 21298 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1314 ms
+2023-10-09 21:35:12.089  INFO 21298 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 21:35:12.230  INFO 21298 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 21:35:12.349  INFO 21298 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-09 21:35:12.706  INFO 21298 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-09 21:35:12.754  INFO 21298 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-09 21:35:12.761  INFO 21298 --- [main] liquibase.util                           : UPDATE SUMMARY
+2023-10-09 21:35:12.761  INFO 21298 --- [main] liquibase.util                           : Run:                          0
+2023-10-09 21:35:12.762  INFO 21298 --- [main] liquibase.util                           : Previously run:               3
+2023-10-09 21:35:12.762  INFO 21298 --- [main] liquibase.util                           : Filtered out:                 0
+2023-10-09 21:35:12.762  INFO 21298 --- [main] liquibase.util                           : -------------------------------
+2023-10-09 21:35:12.762  INFO 21298 --- [main] liquibase.util                           : Total change sets:            3
+
+2023-10-09 21:35:12.763  INFO 21298 --- [main] liquibase.util                           : Update summary generated
+2023-10-09 21:35:12.786  INFO 21298 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-10-09 21:35:12.789  INFO 21298 --- [main] liquibase.command                        : Command execution complete
+2023-10-09 21:35:12.845  INFO 21298 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 21:35:12.888  INFO 21298 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-09 21:35:13.035  INFO 21298 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 21:35:13.126  INFO 21298 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-10-09 21:35:13.691  INFO 21298 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 21:35:13.700  INFO 21298 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 21:35:14.200  WARN 21298 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 21:35:14.300  INFO 21298 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@435a4d2d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@253379ec, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c6e407, org.springframework.security.web.header.HeaderWriterFilter@4830c979, org.springframework.web.filter.CorsFilter@73c6ebec, org.springframework.security.web.authentication.logout.LogoutFilter@3816efab, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@2723b0d0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f650dae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4df8443f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27d4513e, org.springframework.security.web.session.SessionManagementFilter@1e86b2d1, org.springframework.security.web.access.ExceptionTranslationFilter@3507200d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9fc125b]
+2023-10-09 21:35:14.590  WARN 21298 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-10-09 21:35:14.654  INFO 21298 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-09 21:35:14.666  INFO 21298 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 4.534 seconds (JVM running for 5.151)
+2023-10-09 21:35:18.490  INFO 21298 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-09 21:35:18.491  INFO 21298 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-09 21:35:18.492  INFO 21298 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-09 21:35:18.530  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:35:18.530  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:35:18.576  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:35:18.576  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:35:18.721  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:35:18.722  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:35:18.738  WARN 21298 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-10-09 21:35:18.740  INFO 21298 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:35:26.524  INFO 21298 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:35:26.671  INFO 21298 --- [http-nio-8080-exec-3] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:35:26.676  INFO 21298 --- [http-nio-8080-exec-3] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:35:26.799  INFO 21298 --- [http-nio-8080-exec-3] r.z.d.controllers.AuthController         : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJsb2dpbiI6InVzZXIxIiwiaWF0IjoxNjk2ODc2NTI2LCJpc3MiOiJ6YXJveWFuIiwiZXhwIjoxNjk2ODc4MzI2fQ.Z3XrDn8QLAhIycU6gmWrsiCGOpzVm5HdkP4wyIPkhG8
+2023-10-09 21:35:26.812  INFO 21298 --- [http-nio-8080-exec-3] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:35:26.832  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:35:26.833  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:35:26.833  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:35:26.834  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:35:26.841  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:35:26.842  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:35:26.857  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.controllers.FileController         : limit3
+2023-10-09 21:35:26.857  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.controllers.FileController         : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJsb2dpbiI6InVzZXIxIiwiaWF0IjoxNjk2ODc2NTI2LCJpc3MiOiJ6YXJveWFuIiwiZXhwIjoxNjk2ODc4MzI2fQ.Z3XrDn8QLAhIycU6gmWrsiCGOpzVm5HdkP4wyIPkhG8
+2023-10-09 21:35:26.868  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.services.FileService               : вошли в метод getAllFiles
+2023-10-09 21:35:26.868  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:35:26.868  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.services.FileService               : Поиск всех файлов в базе данных по Id пользователя: user1 и лимиту вывода: 3
+2023-10-09 21:35:26.900  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.services.FileService               : Все файлы в базе данных по Id пользователя: user1 и лимиту вывода: 3 найдены | Список файлов: [FileEntity{id=3, created=2023-10-09T21:16:52.758882, name='252.txt', fileType='text/plain', size=904, user=UserEntity{id=1, login='user1', password='$2a$10$PuQ.YRcwwgqDfbCH69BSr.7eQnLF1Qr2PjxPRGCpPoEM6H5FHfCRG'}}]
+2023-10-09 21:35:26.929  INFO 21298 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:35:28.593  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:35:28.593  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:35:28.594  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:35:28.594  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:35:28.599  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:35:28.599  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:35:28.602  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:35:28.605  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.services.FileService               : метод скачивания
+2023-10-09 21:35:28.612  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.services.FileService               : FileEntity{id=3, created=2023-10-09T21:35:28.612911, name='252.txt', fileType='text/plain', size=904, user=UserEntity{id=1, login='user1', password='$2a$10$PuQ.YRcwwgqDfbCH69BSr.7eQnLF1Qr2PjxPRGCpPoEM6H5FHfCRG'}}
+2023-10-09 21:35:28.622  WARN 21298 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Unsupported field: OffsetSeconds; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unsupported field: OffsetSeconds (through reference chain: ru.zaroyan.draftcloudstorage.models.FileEntity["created"])]
+2023-10-09 21:35:28.623  INFO 21298 --- [http-nio-8080-exec-5] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:36:05.539  INFO 21298 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 21:36:05.542  INFO 21298 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 21:36:05.551  INFO 21298 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 21:58:29.702  INFO 21775 --- [main] r.z.d.DraftCloudStorageApplication       : Starting DraftCloudStorageApplication using Java 11.0.18 on mac with PID 21775 (/Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage/target/classes started by albertzaroyan in /Users/albertzaroyan/Documents/Java_project/Homeworks/draftCloudStorage)
+2023-10-09 21:58:29.706  INFO 21775 --- [main] r.z.d.DraftCloudStorageApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 21:58:30.452  INFO 21775 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 21:58:30.508  INFO 21775 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2023-10-09 21:58:31.074  INFO 21775 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-09 21:58:31.084  INFO 21775 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-09 21:58:31.084  INFO 21775 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-10-09 21:58:31.175  INFO 21775 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-09 21:58:31.175  INFO 21775 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1421 ms
+2023-10-09 21:58:31.297  INFO 21775 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 21:58:31.445  INFO 21775 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 21:58:31.586  INFO 21775 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-09 21:58:32.015  INFO 21775 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-09 21:58:32.089  INFO 21775 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-09 21:58:32.098  INFO 21775 --- [main] liquibase.util                           : UPDATE SUMMARY
+2023-10-09 21:58:32.098  INFO 21775 --- [main] liquibase.util                           : Run:                          0
+2023-10-09 21:58:32.098  INFO 21775 --- [main] liquibase.util                           : Previously run:               3
+2023-10-09 21:58:32.099  INFO 21775 --- [main] liquibase.util                           : Filtered out:                 0
+2023-10-09 21:58:32.099  INFO 21775 --- [main] liquibase.util                           : -------------------------------
+2023-10-09 21:58:32.099  INFO 21775 --- [main] liquibase.util                           : Total change sets:            3
+
+2023-10-09 21:58:32.100  INFO 21775 --- [main] liquibase.util                           : Update summary generated
+2023-10-09 21:58:32.128  INFO 21775 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-10-09 21:58:32.131  INFO 21775 --- [main] liquibase.command                        : Command execution complete
+2023-10-09 21:58:32.203  INFO 21775 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 21:58:32.261  INFO 21775 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-09 21:58:32.450  INFO 21775 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 21:58:32.573  INFO 21775 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-10-09 21:58:33.261  INFO 21775 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 21:58:33.272  INFO 21775 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 21:58:33.852  WARN 21775 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 21:58:33.974  INFO 21775 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6779959d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@335a45a8, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e9afe4e, org.springframework.security.web.header.HeaderWriterFilter@27ada0e8, org.springframework.web.filter.CorsFilter@294c36b9, org.springframework.security.web.authentication.logout.LogoutFilter@1f7853af, ru.zaroyan.draftcloudstorage.config.JwtRequestFilter@6d96a895, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b8ba1d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57fb6900, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b23897a, org.springframework.security.web.session.SessionManagementFilter@4b6942a0, org.springframework.security.web.access.ExceptionTranslationFilter@4a2f1ae3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13f255ed]
+2023-10-09 21:58:34.257  WARN 21775 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-10-09 21:58:34.329  INFO 21775 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-09 21:58:34.343  INFO 21775 --- [main] r.z.d.DraftCloudStorageApplication       : Started DraftCloudStorageApplication in 5.222 seconds (JVM running for 5.88)
+2023-10-09 21:58:45.448  INFO 21775 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-09 21:58:45.450  INFO 21775 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-09 21:58:45.451  INFO 21775 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-09 21:58:45.540  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:58:45.540  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:58:45.591  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:58:45.591  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:58:45.743  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:58:45.744  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:58:45.760  WARN 21775 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-10-09 21:58:45.762  INFO 21775 --- [http-nio-8080-exec-4] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:58:53.976  INFO 21775 --- [http-nio-8080-exec-6] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:58:54.117  INFO 21775 --- [http-nio-8080-exec-6] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:58:54.122  INFO 21775 --- [http-nio-8080-exec-6] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:58:54.239  INFO 21775 --- [http-nio-8080-exec-6] r.z.d.controllers.AuthController         : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJsb2dpbiI6InVzZXIxIiwiaWF0IjoxNjk2ODc3OTM0LCJpc3MiOiJ6YXJveWFuIiwiZXhwIjoxNjk2ODc5NzM0fQ.CFRLMFJ_aso_-yD85NwgqWRg16as-fNslR6hB-hF6Vw
+2023-10-09 21:58:54.251  INFO 21775 --- [http-nio-8080-exec-6] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:58:54.276  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:58:54.276  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:58:54.277  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:58:54.278  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:58:54.282  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:58:54.283  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:58:54.302  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.controllers.FileController         : limit3
+2023-10-09 21:58:54.302  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.controllers.FileController         : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJsb2dpbiI6InVzZXIxIiwiaWF0IjoxNjk2ODc3OTM0LCJpc3MiOiJ6YXJveWFuIiwiZXhwIjoxNjk2ODc5NzM0fQ.CFRLMFJ_aso_-yD85NwgqWRg16as-fNslR6hB-hF6Vw
+2023-10-09 21:58:54.315  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.services.FileService               : вошли в метод getAllFiles
+2023-10-09 21:58:54.316  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:58:54.316  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.services.FileService               : Поиск всех файлов в базе данных по Id пользователя: user1 и лимиту вывода: 3
+2023-10-09 21:58:54.352  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.services.FileService               : Все файлы в базе данных по Id пользователя: user1 и лимиту вывода: 3 найдены | Список файлов: [FileEntity{id=3, created=2023-10-09T21:16:52.758882, name='252.txt', fileType='text/plain', size=904, user=UserEntity{id=1, login='user1', password='$2a$10$PuQ.YRcwwgqDfbCH69BSr.7eQnLF1Qr2PjxPRGCpPoEM6H5FHfCRG'}}]
+2023-10-09 21:58:54.382  INFO 21775 --- [http-nio-8080-exec-8] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:58:55.860  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:58:55.860  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:58:55.861  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:58:55.861  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:58:55.866  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:58:55.867  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:58:55.869  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:58:55.871  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.services.FileService               : метод скачивания
+2023-10-09 21:58:55.878  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.services.FileService               : FileEntity{id=3, created=2023-10-09T21:16:52.758882, name='252.txt', fileType='text/plain', size=904, user=UserEntity{id=1, login='user1', password='$2a$10$PuQ.YRcwwgqDfbCH69BSr.7eQnLF1Qr2PjxPRGCpPoEM6H5FHfCRG'}}
+2023-10-09 21:58:55.909  INFO 21775 --- [http-nio-8080-exec-10] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:59:15.861  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:59:15.862  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:59:15.862  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:59:15.862  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:59:15.868  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:59:15.870  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:59:15.873  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:59:15.916  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.services.FileService               : Файл 252.txt успешно удален
+2023-10-09 21:59:15.939  INFO 21775 --- [http-nio-8080-exec-1] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:59:17.948  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : Начало выполнения JwtRequestFilter
+2023-10-09 21:59:17.948  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : Validate jwt
+2023-10-09 21:59:17.949  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:59:17.949  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.services.UserDetailsServiceImpl    : Запрошена загрузка пользователя с именем: user1
+2023-10-09 21:59:17.954  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.services.UserDetailsServiceImpl    : Пользователь с именем user1 найден
+2023-10-09 21:59:17.954  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : Аутентификация по токену выполнена
+2023-10-09 21:59:17.955  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.controllers.FileController         : limit3
+2023-10-09 21:59:17.955  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.controllers.FileController         : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJsb2dpbiI6InVzZXIxIiwiaWF0IjoxNjk2ODc3OTM0LCJpc3MiOiJ6YXJveWFuIiwiZXhwIjoxNjk2ODc5NzM0fQ.CFRLMFJ_aso_-yD85NwgqWRg16as-fNslR6hB-hF6Vw
+2023-10-09 21:59:17.955  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.services.FileService               : вошли в метод getAllFiles
+2023-10-09 21:59:17.955  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.utils.JwtTokenUtils                : прошли валидацию токена
+2023-10-09 21:59:17.956  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.services.FileService               : Поиск всех файлов в базе данных по Id пользователя: user1 и лимиту вывода: 3
+2023-10-09 21:59:17.958  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.services.FileService               : Все файлы в базе данных по Id пользователя: user1 и лимиту вывода: 3 найдены | Список файлов: []
+2023-10-09 21:59:17.961  INFO 21775 --- [http-nio-8080-exec-2] r.z.d.config.JwtRequestFilter            : Конец выполнения JwtRequestFilter
+2023-10-09 21:59:58.579  INFO 21775 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 21:59:58.582  INFO 21775 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 21:59:58.589  INFO 21775 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

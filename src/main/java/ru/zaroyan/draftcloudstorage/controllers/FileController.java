@@ -1,6 +1,7 @@
 package ru.zaroyan.draftcloudstorage.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,12 @@ import java.util.Map;
 public class FileController {
 
     private final FileService fileService;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public FileController(FileService fileService) {
+    public FileController(FileService fileService, ModelMapper modelMapper) {
         this.fileService = fileService;
+        this.modelMapper = modelMapper;
     }
 
     @PostMapping(value = "/file")
@@ -57,10 +60,11 @@ public class FileController {
                                       @RequestHeader("auth-token") String authToken) {
 
         FileEntity file = fileService.download(filename, authToken);
+        FileDto fileDto = convertToFileDto(file);
         if (file != null) {
             return ResponseEntity.ok()
                     .header("Content-Disposition", "attachment; filename=" + file.getName())
-                    .body(file);
+                    .body(fileDto);
         } else {
 
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -86,5 +90,9 @@ public class FileController {
 
         return ResponseEntity.ok("Success deleted");
 
+    }
+
+    public FileDto convertToFileDto(FileEntity fileEntity) {
+        return this.modelMapper.map(fileEntity, FileDto.class);
     }
 }
