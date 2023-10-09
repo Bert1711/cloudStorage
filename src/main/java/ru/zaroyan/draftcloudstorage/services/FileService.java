@@ -62,7 +62,7 @@ public class FileService {
                 .build();
         log.info("Файл build");
         log.info(file.toString());
-        Optional<FileEntity> checkFilename = filesRepository.findByName(file.getName());
+        Optional<FileEntity> checkFilename = filesRepository.findFileByNameAndUser(file.getName(), file.getUser());
         log.info("checkRepository");
         if(checkFilename.isPresent()) {
             log.error("Файл с таким именем уже существует");
