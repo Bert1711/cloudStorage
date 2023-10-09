@@ -1,22 +1,15 @@
 package ru.zaroyan.draftcloudstorage.controllers;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.zaroyan.draftcloudstorage.dto.FileDto;
-import ru.zaroyan.draftcloudstorage.exceptions.ValidationException;
 import ru.zaroyan.draftcloudstorage.models.FileEntity;
 import ru.zaroyan.draftcloudstorage.services.FileService;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,29 +17,30 @@ import java.util.List;
  * @author Zaroyan
  */
 @RestController
-@RequiredArgsConstructor
-@AllArgsConstructor
 @Slf4j
 public class FileController {
 
+    private final FileService fileService;
+
     @Autowired
-    private FileService fileService;
+    public FileController(FileService fileService) {
+        this.fileService = fileService;
+    }
 
-    @PostMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<HttpStatus> upload(@RequestHeader("auth-token") String authToken,
-                                             @RequestParam("filename") String filename,
-                                             @Valid MultipartFile multipartFile,
-                                             BindingResult bindingResult) throws IOException {
-        if (bindingResult.hasErrors()) {
-            throw new ValidationException("Validation failed");
-        }
+    @PostMapping(value = "/file")
+    public ResponseEntity<HttpStatus> upload(@RequestParam("filename") String filename,
+                                             @RequestPart("file") MultipartFile file,
+                                             @RequestHeader("auth-token") String authToken,
+                                             @RequestHeader("Content-Length") long contentLength,
+                                             @RequestHeader("Content-Type") String contentType) throws IOException{
 
-        fileService.upload(authToken, filename, multipartFile);
+        log.info(filename);
+        if (file == null)
+            log.info("ПУСТО!");
+
+        fileService.upload(authToken, filename, file);
 
         return ResponseEntity.ok(HttpStatus.OK);
-
-
     }
 
     @PutMapping("/file")

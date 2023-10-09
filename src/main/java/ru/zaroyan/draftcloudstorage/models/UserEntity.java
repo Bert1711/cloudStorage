@@ -40,5 +40,13 @@ public class UserEntity implements Serializable {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FileEntity> userFiles = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
 

@@ -2,12 +2,14 @@ package ru.zaroyan.draftcloudstorage.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 /**
  * @author Zaroyan
@@ -42,11 +44,12 @@ public class FileEntity implements Serializable {
 
 
     @Lob
-    @Column(nullable = false)
+    @Type(type="org.hibernate.type.BinaryType")
+    @Column(name = "bytes",nullable = false)
     private byte[] bytes;
 
     @ManyToOne
-    @JoinColumn(name = "login", referencedColumnName = "login")
+    @JoinColumn(name = "user_login", referencedColumnName = "login")
     private UserEntity user;
 
     @PrePersist
@@ -54,6 +57,18 @@ public class FileEntity implements Serializable {
         this.created = LocalDateTime.now();
     }
 
+    @Override
+    public String toString() {
+        return "FileEntity{" +
+                "id=" + id +
+                ", created=" + created +
+                ", name='" + name + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", size=" + size +
+                ", bytes=" + Arrays.toString(bytes) +
+                ", user=" + user +
+                '}';
+    }
 }
 
 

@@ -16,7 +16,7 @@ import java.util.Optional;
  */
 @Repository
 public interface FilesRepository extends JpaRepository<FileEntity, Long> {
-    Optional<FileEntity> findFileByName(String name);
+    Optional<FileEntity> findByName(String name);
     Optional<FileEntity> findFileByNameAndUser(String filename, UserEntity user);
     @Query(value = "SELECT * FROM files f WHERE f.user_login = ?1 ORDER BY f.id DESC LIMIT ?2", nativeQuery = true)
     List<FileEntity> findFilesByUserIdWithLimit(String login, int limit);

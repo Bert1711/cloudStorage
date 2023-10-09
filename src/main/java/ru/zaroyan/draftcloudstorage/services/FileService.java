@@ -15,6 +15,7 @@ import ru.zaroyan.draftcloudstorage.repositories.UsersRepository;
 import ru.zaroyan.draftcloudstorage.utils.JwtTokenUtils;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,23 +46,30 @@ public class FileService {
     @Transactional
     public void upload(String authToken, String filename, MultipartFile resource) throws IOException {
         UserEntity user = getUserByToken(authToken);
+        log.info("UserEntity user - выполнено" + user.toString());
         if(resource.isEmpty()) {
             log.info("Файл не найден");
             throw new RuntimeException("Error input data");
         }
+        log.info(filename);
         FileEntity file = FileEntity.builder()
+                .created(LocalDateTime.now())
                 .name(filename)
                 .fileType(resource.getContentType())
                 .size(resource.getSize())
                 .bytes(resource.getBytes())
                 .user(user)
                 .build();
-        Optional<FileEntity> checkFilename = filesRepository.findFileByName(file.getName());
+        log.info("Файл build");
+        log.info(file.toString());
+        Optional<FileEntity> checkFilename = filesRepository.findByName(file.getName());
+        log.info("checkRepository");
         if(checkFilename.isPresent()) {
             log.error("Файл с таким именем уже существует");
             throw new RuntimeException("The file with a such name already exist");
 
         }
+        log.info("Файл уникален");
         filesRepository.save(file);
         log.info("Пользователь успешно загрузил файл {}", filename);
     }
@@ -114,14 +122,13 @@ public class FileService {
 
 
     private UserEntity getUserByToken(String authToken) {
-        String username = jwtTokenUtils.validateTokenAndRetrieveClaim(authToken.replace
-                (tokenPrefix, ""));
+        String token = authToken.substring(7);
+        log.info(token);
+        String username = jwtTokenUtils.validateTokenAndRetrieveClaim(token);
+        log.info(username);
         return usersRepository.findByLogin(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь с именем " + username
                         + " не найден"));
-
-
-
     }
 
     public List<FileDto> getAllFiles(int limit, String authToken) {

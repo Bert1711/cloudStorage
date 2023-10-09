@@ -35,7 +35,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: bytes
-                  type: BYTEA
+                  type: bytea
                   constraints:
                     nullable: false
               - column:
