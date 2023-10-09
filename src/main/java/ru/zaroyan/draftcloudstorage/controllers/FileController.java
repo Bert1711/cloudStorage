@@ -12,6 +12,7 @@ import ru.zaroyan.draftcloudstorage.services.FileService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zaroyan
@@ -30,9 +31,7 @@ public class FileController {
     @PostMapping(value = "/file")
     public ResponseEntity<HttpStatus> upload(@RequestParam("filename") String filename,
                                              @RequestPart("file") MultipartFile file,
-                                             @RequestHeader("auth-token") String authToken,
-                                             @RequestHeader("Content-Length") long contentLength,
-                                             @RequestHeader("Content-Type") String contentType) throws IOException{
+                                             @RequestHeader("auth-token") String authToken) throws IOException{
 
         log.info(filename);
         if (file == null)
@@ -46,7 +45,8 @@ public class FileController {
     @PutMapping("/file")
     public ResponseEntity<String> editFileName(@RequestHeader("auth-token") String authToken,
                                                @RequestParam("filename") String oldFileName,
-                                               @RequestBody String newFileName) {
+                                               @RequestBody Map<String, String> newFileNameJSON) {
+        String newFileName = newFileNameJSON.get("filename");
         fileService.renameFile(authToken, oldFileName, newFileName);
         return new ResponseEntity<>("Success upload", HttpStatus.OK);
     }

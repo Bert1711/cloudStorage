@@ -29,7 +29,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        log.info("вошли в фильтр JwtRequestFilter");
+        log.info("Начало выполнения JwtRequestFilter");
+
         String authHeader = httpServletRequest.getHeader("auth-token");
 
         if (authHeader != null && !authHeader.isBlank() && authHeader.startsWith("Bearer ")) {
@@ -52,7 +53,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
                     if (SecurityContextHolder.getContext().getAuthentication() == null) {
                         SecurityContextHolder.getContext().setAuthentication(authToken);
-                        log.info("setAuthentication authToken");
+                        log.info("Аутентификация по токену выполнена");
                     }
                 } catch (JWTVerificationException exc) {
                     log.info("Invalid JWT Token");
@@ -63,7 +64,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
-        log.info("вышли из фильтра JwtRequestFilter");
+        log.info("Конец выполнения JwtRequestFilter");
+
     }
 }
 

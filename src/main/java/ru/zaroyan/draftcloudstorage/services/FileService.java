@@ -31,12 +31,10 @@ public class FileService {
     private final FilesRepository filesRepository;
     private final UsersRepository usersRepository;
     private final JwtTokenUtils jwtTokenUtils;
-    private final String tokenPrefix = "Bearer ";
 
     @Autowired
     public FileService(FilesRepository filesRepository,  UsersRepository usersRepository,
                        JwtTokenUtils jwtTokenUtils) {
-        log.info("ИНИЦИАЛИЗАЦИЯ FileSer");
         this.filesRepository = filesRepository;
         this.usersRepository = usersRepository;
         this.jwtTokenUtils = jwtTokenUtils;
@@ -107,6 +105,7 @@ public class FileService {
             filesRepository.save(file);
             log.info("Имя файла было успешно изменено");
         } else {
+            log.error("Файл не найден");
             throw new FileNotFoundExceptionImpl("File not found");
         }
     }
@@ -123,9 +122,7 @@ public class FileService {
 
     private UserEntity getUserByToken(String authToken) {
         String token = authToken.substring(7);
-        log.info(token);
         String username = jwtTokenUtils.validateTokenAndRetrieveClaim(token);
-        log.info(username);
         return usersRepository.findByLogin(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь с именем " + username
                         + " не найден"));
@@ -136,7 +133,7 @@ public class FileService {
 
         log.info("вошли в метод getAllFiles");
         String login = jwtTokenUtils.validateTokenAndRetrieveClaim(token);
-        log.info("после валидации токена");
+
 
         log.info("Поиск всех файлов в базе данных по Id пользователя: {} и лимиту вывода: {}", login, limit);
         List<FileEntity> listFiles = filesRepository.findFilesByUserIdWithLimit(login, limit);

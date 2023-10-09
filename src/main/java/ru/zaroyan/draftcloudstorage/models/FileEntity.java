@@ -65,7 +65,6 @@ public class FileEntity implements Serializable {
                 ", name='" + name + '\'' +
                 ", fileType='" + fileType + '\'' +
                 ", size=" + size +
-                ", bytes=" + Arrays.toString(bytes) +
                 ", user=" + user +
                 '}';
     }
